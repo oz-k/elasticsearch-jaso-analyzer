@@ -98,6 +98,9 @@ public class JasoDecomposer {
                         }
                     }
                 } else {
+                    if(ch == ' ') {
+                        chosungBuffer.append(" ");
+                    }
 
                     if (options.isMistype()) {
                         if (!jaso) {
@@ -189,6 +192,7 @@ public class JasoDecomposer {
                                 break;
                             case 'ㅄ':
                                 etcBuffer.append("ㅂㅅ");
+                                break;
                             case 'ㄸ':
                                 etcBuffer.append("ㄷㄷ");
                                 break;
@@ -212,40 +216,16 @@ public class JasoDecomposer {
 
             //결과 조합
 
-            //공백을 붙인 전체 문자열 (한글)
-            if (korBuffer.indexOf(" ") != -1) {
-                if (korBuffer.length() > 0) {
-                    returnBuffer.append(korBuffer.toString().replaceAll(" ", ""));
-                    returnBuffer.append(" ");
-                }
-            }
-
             //공백으로 분리된 문자열 (한글)
             if (korBuffer.length() > 0) {
                 returnBuffer.append(korBuffer.toString());
                 returnBuffer.append(" ");
             }
 
-            //공백을 붙인 전체 문자열 (영문)
-            if (engBuffer.indexOf(" ") != -1) {
-                if (engBuffer.length() > 0) {
-                    returnBuffer.append(engBuffer.toString().replaceAll(" ", ""));
-                    returnBuffer.append(" ");
-                }
-            }
-
             //공백으로 분리된 문자열 (영문)
             if (engBuffer.length() > 0) {
                 returnBuffer.append(engBuffer.toString());
                 returnBuffer.append(" ");
-            }
-
-            //공백을 붙인 전체 문자열 (오타)
-            if (mistypingBuffer.indexOf(" ") != -1) {
-                if (mistypingBuffer.length() > 0) {
-                    returnBuffer.append(mistypingBuffer.toString().replaceAll(" ", ""));
-                    returnBuffer.append(" ");
-                }
             }
 
             //공백으로 분리된 문자열 (오타)
