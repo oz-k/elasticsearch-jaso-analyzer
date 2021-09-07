@@ -143,7 +143,6 @@ public abstract class BaseTokenizer extends Tokenizer {
             }
             temp = writer.toString();
             temp = decomposer.runJasoDecompose(temp, options);
-            // System.out.println(temp);
             StringReader myStringReader = new StringReader(temp);
             in = myStringReader;
         } catch (Exception e) {
